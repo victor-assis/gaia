@@ -1,0 +1,7 @@
+{
+  "color": {
+    "gray": {
+      "dark": { "value": "{color.gray.dark.value}", "theme": "black" }
+    }
+  }
+}

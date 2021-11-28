@@ -1,0 +1,19 @@
+{
+  "name": "@houf/tokens",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon --watch \"./lib/**/*\" --exec npm run build",
+    "build": "run-s build:**",
+    "build:tokens": "node ./lib/build.js",
+    "build:package": "shx cp \"./lib/package.json\" ../../dist/tokens",
+    "lint": "run-p lint:*",
+    "lint:eslint": "eslint ./lib/**/*.js",
+    "fix": "run-p fix:*",
+    "fix:eslint": "eslint ./lib/**/*.js --fix"
+  },
+  "devDependencies": {
+    "lodash": "^4.17.21",
+    "style-dictionary": "^3.0.3"
+  }
+}

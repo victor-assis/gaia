@@ -1,0 +1,14 @@
+{
+  "name": "@houf/tools",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "run-s build:**",
+    "build:ts": "tsc -p tsconfig.json",
+    "build:package": "copyfiles -u 1 \"./src/package.json\" ../../dist/tools",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "typescript": "^4.5.3"
+  }
+}

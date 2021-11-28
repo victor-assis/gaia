@@ -1,0 +1,11 @@
+{
+  "name": "@houf/tools",
+  "version": "1.0.0",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "tag": "latest",
+    "access": "public"
+  },  
+  "main": "./index.js",
+  "types": "./index.d.ts"
+}

@@ -1,0 +1,21 @@
+{
+  "name": "@houf/style",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "run-p start:**",
+    "start:css": "sass --watch lib:../../dist/style/css --no-source-map --load-path=node_modules",
+    "start:scss": "nodemon -e scss --watch \"./lib/**/*\" --exec copyfiles -u 1 \"./lib/**.scss\" \"./lib/**/**.scss\" ../../dist/style/scss",
+    "build": "run-s build:**",
+    "build:css": "sass lib:../../dist/style/css --style=compressed --no-source-map --stop-on-error --load-path=node_modules",
+    "build:scss": "copyfiles -u 1 \"./lib/**.scss\" \"./lib/**/**.scss\" ../../dist/style/scss",
+    "build:package": "copyfiles -u 1 \"./lib/package.json\" ../../dist/style",
+    "lint": "run-p lint:*",
+    "lint:stylelint": "stylelint \"./lib/**/*.scss\" --formatter=verbose",
+    "fix": "run-p fix:*",
+    "fix:stylelint": "stylelint \"./lib/**/*.scss\" --fix"
+  },
+  "devDependencies": {
+    "sass": "^1.44.0"
+  }
+}

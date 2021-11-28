@@ -1,0 +1,38 @@
+{
+  "name": "@houf/linters",
+  "version": "1.0.0",
+  "main": "index.js",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "tag": "latest",
+    "access": "public"
+  },
+  "scripts": {
+    "build": "run-s build:**",
+    "build:lint": "copyfiles -e \"./package-lock.json\" -e \"./.releaserc.json\" -e \"./CHANGELOG.md\" -a ./* ../../dist/linters",
+    "lint": "run-p lint:*",
+    "lint:eslint": "eslint",
+    "fix": "run-p fix:*",
+    "fix:eslint": "eslint --fix"
+  },
+  "devDependencies": {
+    "@angular-eslint/builder": "13.0.1",
+    "@angular-eslint/eslint-plugin": "13.0.1",
+    "@angular-eslint/eslint-plugin-template": "13.0.1",
+    "@angular-eslint/schematics": "13.0.1",
+    "@angular-eslint/template-parser": "13.0.1",
+    "@typescript-eslint/eslint-plugin": "^5.4.0",
+    "@typescript-eslint/parser": "^5.4.0",
+    "eslint": "^8.3.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-promise": "^5.1.1",
+    "eslint-plugin-react": "^7.27.1",
+    "prettier": "^2.5.0",
+    "stylelint": "^14.1.0",
+    "stylelint-config-standard": "^24.0.0"
+  }
+}
