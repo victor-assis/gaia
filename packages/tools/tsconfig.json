@@ -1,4 +1,5 @@
 {
+  "compileOnSave": false,
   "compilerOptions": {
     "outDir": "../../dist/tools",
     "target": "es6",
@@ -9,7 +10,8 @@
     ],
     "lib": [
       "ES6",
-      "DOM"
+      "DOM",
+      "es2017"
     ],
     "sourceMap": true,
     "strict": true,
@@ -23,8 +25,20 @@
     "noUnusedParameters": true,
     "skipLibCheck": true,
     "declaration": true,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "emitDecoratorMetadata": true,
+    "removeComments": true,
+    "forceConsistentCasingInFileNames": true,
+    "noFallthroughCasesInSwitch": true
   },
+  "references": [
+    {
+      "path": "./tsconfig.lib.json"
+    },
+    {
+      "path": "./tsconfig.spec.json"
+    }
+  ],
   "include": [
     "src/**/*"
   ],

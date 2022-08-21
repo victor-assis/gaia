@@ -1,1 +1,1 @@
-export { default as Exemple } from './features/exemple/exemple'
+export * from './features/exemple/exemple'

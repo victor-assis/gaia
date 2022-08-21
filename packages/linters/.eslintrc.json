@@ -44,3 +44,592 @@
         ]
     }
 }
+
+
+{
+    "root": true,
+    "ignorePatterns": ["**/*"],
+    "plugins": ["@nrwl/nx", "prettier"],
+    "extends": ["prettier"],
+    "overrides": [
+      {
+        "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+        "rules": {
+          "@nrwl/nx/enforce-module-boundaries": [
+            "error",
+            {
+              "enforceBuildableLibDependency": true,
+              "allow": [],
+              "depConstraints": [
+                {
+                  "sourceTag": "*",
+                  "onlyDependOnLibsWithTags": ["*"]
+                }
+              ]
+            }
+          ],
+          "max-len": [
+            "error",
+            {
+              "code": 100,
+              "ignoreStrings": true,
+              "ignoreTemplateLiterals": true,
+              "ignoreRegExpLiterals": true,
+              "ignoreUrls": true
+            }
+          ],
+          "prettier/prettier": ["error"]
+        }
+      },
+      {
+        "files": ["*.ts", "*.tsx"],
+        "extends": [
+          "plugin:@nrwl/nx/typescript"
+        ],
+        "rules": {}
+      },
+      {
+        "files": ["*.js", "*.jsx"],
+        "extends": [
+          "plugin:@nrwl/nx/javascript"
+        ],
+        "rules": {}
+      },
+      {
+        "files": ["*.ts"],
+        "rules": {
+          "@angular-eslint/component-class-suffix": "error",
+          "@angular-eslint/component-selector": [
+            "error",
+            {
+              "type": ["element", "attribute"],
+              "prefix": "voxel",
+              "style": "kebab-case"
+            }
+          ],
+          "@angular-eslint/directive-class-suffix": "error",
+          "@angular-eslint/directive-selector": [
+            "error",
+            {
+              "type": ["element", "attribute"],
+              "prefix": "voxel",
+              "style": "camelCase"
+            }
+          ],
+          "@angular-eslint/no-input-rename": "error",
+          "@angular-eslint/no-inputs-metadata-property": "error",
+          "@angular-eslint/no-output-on-prefix": "error",
+          "@angular-eslint/no-output-rename": "error",
+          "@angular-eslint/no-outputs-metadata-property": "error",
+          "@angular-eslint/use-pipe-transform-interface": "error",
+          "@typescript-eslint/adjacent-overload-signatures": "error",
+          "@angular-eslint/no-empty-lifecycle-method": "off",
+          "@typescript-eslint/array-type": [
+            "error",
+            {
+              "default": "array"
+            }
+          ],
+          "@typescript-eslint/ban-types": [
+            "error",
+            {
+              "types": {
+                "Object": {
+                  "message": "Avoid using the `Object` type. Did you mean `object`?"
+                },
+                "Boolean": {
+                  "message": "Avoid using the `Boolean` type. Did you mean `boolean`?"
+                },
+                "Number": {
+                  "message": "Avoid using the `Number` type. Did you mean `number`?"
+                },
+                "String": {
+                  "message": "Avoid using the `String` type. Did you mean `string`?"
+                },
+                "Symbol": {
+                  "message": "Avoid using the `Symbol` type. Did you mean `symbol`?"
+                }
+              }
+            }
+          ],
+          "@typescript-eslint/consistent-type-assertions": "error",
+          "@typescript-eslint/consistent-type-definitions": "error",
+          "@typescript-eslint/dot-notation": "off",
+          "@typescript-eslint/explicit-member-accessibility": [
+            "error",
+            {
+              "accessibility": "no-public"
+            }
+          ],
+          "@typescript-eslint/member-delimiter-style": [
+            "error",
+            {
+              "multiline": {
+                "delimiter": "semi",
+                "requireLast": true
+              },
+              "singleline": {
+                "delimiter": "semi",
+                "requireLast": false
+              }
+            }
+          ],
+          "@typescript-eslint/member-ordering": "error",
+          // "@typescript-eslint/naming-convention": "error",
+          "@typescript-eslint/no-empty-function": "error",
+          "@typescript-eslint/no-empty-interface": "error",
+          "@typescript-eslint/no-explicit-any": "off",
+          "@typescript-eslint/no-inferrable-types": [
+            "error",
+            {
+              "ignoreParameters": true
+            }
+          ],
+          "@typescript-eslint/no-misused-new": "error",
+          "@typescript-eslint/no-namespace": "error",
+          "@typescript-eslint/no-non-null-assertion": "error",
+          "@typescript-eslint/no-parameter-properties": "off",
+          "@typescript-eslint/no-shadow": [
+            "error",
+            {
+              "hoist": "all"
+            }
+          ],
+          "@typescript-eslint/no-unused-expressions": "error",
+          "@typescript-eslint/no-use-before-define": "off",
+          "@typescript-eslint/no-var-requires": "error",
+          "@typescript-eslint/prefer-for-of": "error",
+          "@typescript-eslint/prefer-function-type": "error",
+          "@typescript-eslint/prefer-namespace-keyword": "error",
+          "@typescript-eslint/semi": ["error", "always"],
+          "@typescript-eslint/triple-slash-reference": [
+            "error",
+            {
+              "path": "always",
+              "types": "prefer-import",
+              "lib": "always"
+            }
+          ],
+          "@typescript-eslint/type-annotation-spacing": "error",
+          "@typescript-eslint/unified-signatures": "error",
+          "arrow-body-style": "error",
+          "arrow-parens": ["error", "always"],
+          "brace-style": ["error", "1tbs"],
+          "complexity": "off",
+          "constructor-super": "error",
+          "curly": "error",
+          "dot-notation": "off",
+          "eol-last": "error",
+          "eqeqeq": ["error", "smart"],
+          "guard-for-in": "error",
+          "id-denylist": "off",
+          "id-match": "off",
+          "import/no-deprecated": "warn",
+          "import/order": "off",
+          "jsdoc/check-alignment": "error",
+          // "jsdoc/check-indentation": "error",
+          "jsdoc/newline-after-description": "error",
+          "max-classes-per-file": "off",
+          "new-parens": "error",
+          "no-bitwise": "error",
+          "no-caller": "error",
+          "no-cond-assign": "error",
+          "no-console": [
+            "error",
+            {
+              "allow": [
+                "log",
+                "warn",
+                "dir",
+                "timeLog",
+                "assert",
+                "clear",
+                "count",
+                "countReset",
+                "group",
+                "groupEnd",
+                "table",
+                "dirxml",
+                "error",
+                "groupCollapsed",
+                "Console",
+                "profile",
+                "profileEnd",
+                "timeStamp",
+                "context"
+              ]
+            }
+          ],
+          "no-debugger": "error",
+          "no-empty": "error",
+          "no-empty-function": ["error", { "allow": ["constructors"] }],
+          "no-eval": "error",
+          "no-fallthrough": "error",
+          "no-invalid-regexp": "error",
+          "no-invalid-this": "off",
+          "no-irregular-whitespace": "error",
+          "no-new-wrappers": "error",
+          "no-param-reassign": "error",
+          "no-restricted-imports": ["error", "rxjs/Rx"],
+          "no-shadow": "off",
+          "no-throw-literal": "error",
+          "no-trailing-spaces": "error",
+          "no-undef-init": "error",
+          "no-underscore-dangle": "off",
+          "no-unsafe-finally": "error",
+          "no-unused-expressions": "error",
+          "no-unused-labels": "error",
+          "no-use-before-define": "off",
+          "no-var": "error",
+          "object-shorthand": "error",
+          "one-var": ["error", "never"],
+          "prefer-arrow/prefer-arrow-functions": "error",
+          "prefer-const": "error",
+          "quotes": [2, "single", { "avoidEscape": true }],
+          "radix": "error",
+          "semi": "error",
+          "sonarjs/no-collapsible-if": "error",
+          "spaced-comment": [
+            "error",
+            "always",
+            {
+              "markers": ["/"]
+            }
+          ],
+          "use-isnan": "error",
+          "valid-typeof": "off"
+        },
+        "plugins": [
+          "eslint-plugin-jsdoc",
+          "eslint-plugin-prefer-arrow",
+          "sonarjs",
+          "eslint-plugin-import",
+          "@angular-eslint/eslint-plugin",
+          "@typescript-eslint"
+        ]
+      },
+      {
+        "files": ["*.tsx"],
+        "extends": ["plugin:@nrwl/nx/react"],
+        "plugins": ["react", "jsx-a11y"],
+        "rules": {
+          // quando for evento interno começa com "handle", quando for um evento
+          // recebido por prop começa com "on"
+          // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-handler-names.md
+          "react/jsx-handler-names": ["off", {
+            "eventHandlerPrefix": "handle",
+            "eventHandlerPropPrefix": "on"
+          }],
+  
+          // não duplicar props
+          // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-duplicate-props.md
+          "react/jsx-no-duplicate-props": ["error", { "ignoreCase": true }],
+  
+          // não usar objeto literal no JSX quando não precisa
+          // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-literals.md
+          "react/jsx-no-literals": ["off", { "noStrings": true }],
+  
+          // não enviar props inesperadas
+          // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-undef.md
+          "react/jsx-no-undef": "error",
+  
+          // Nome de componentes ser em PascalCase
+          // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-pascal-case.md
+          "react/jsx-pascal-case": ["error", {
+            "allowAllCaps": true,
+            "ignore": []
+          }],
+  
+          // previne do React ser marcado como não usado quando tem JSX
+          // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-uses-react.md
+          "react/jsx-uses-react": ["error"],
+  
+          // previne do componentes serem marcados como não usado quando usados no JSX
+          // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-uses-vars.md
+          "react/jsx-uses-vars": "error",
+  
+          // alerta para não usar atributos não recomendados pelo React
+          // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-danger.md
+          "react/no-danger": "warn",
+  
+          // alerta que o método está depreciado
+          // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-deprecated.md
+          "react/no-deprecated": ["error"],
+  
+          // evita que o estado seja mudado sem chamar seu setEstado
+          // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-direct-mutation-state.md
+          "react/no-direct-mutation-state": "off",
+  
+          // evita mais de um componente React em um arquivo
+          // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-multi-comp.md
+          "react/no-multi-comp": "off",
+  
+          // garante que a prop ref vai receber uma referência e não uma string
+          // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-string-refs.md
+          "react/no-string-refs": "error",
+  
+          // previno que atributos HTML que não existem sejam aplicados a um elemento
+          // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-unknown-property.md
+          "react/no-unknown-property": "error",
+  
+          // Quando não tem estado, sempre usar função ao invés de classe
+          // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-stateless-function.md
+          "react/prefer-stateless-function": ["error", { "ignorePureComponents": true }],
+  
+          // Avisa que precisa importar o React quando tiver JSX no arquivo
+          // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/react-in-jsx-scope.md
+          "react/react-in-jsx-scope": "off",
+  
+          // para componente em classe, o render deve ter um return
+          // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/require-render-return.md
+          "react/require-render-return": "error",
+  
+          // componentes sem filhos não precisa de tag de fechamento
+          // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/self-closing-comp.md
+          "react/self-closing-comp": "error",
+  
+          // garante que JSX em múltiplas linhas esteja dentro de parênteses
+          // https://github.com/yannickcr/eslint-plugin-react/blob/843d71a432baf0f01f598d7cf1eea75ad6896e4b/docs/rules/jsx-wrap-multilines.md
+          "react/jsx-wrap-multilines": ["error", {
+            "declaration": "parens-new-line",
+            "assignment": "parens-new-line",
+            "return": "parens-new-line",
+            "arrow": "parens-new-line",
+            "condition": "parens-new-line",
+            "logical": "parens-new-line",
+            "prop": "parens-new-line"
+          }],
+  
+          // proíbe comentário no JSX, pois eles são renderizados no HTML
+          // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-comment-textnodes.md
+          "react/jsx-no-comment-textnodes": "error",
+  
+          // avisa para não usar findDOMNode(), está depreciado
+          // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-find-dom-node.md
+          "react/no-find-dom-node": "error",
+  
+          // desliga regra que impede de mandar className para componentes
+          // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/forbid-component-props.md
+          "react/forbid-component-props": ["off", { "forbid": [] }],
+  
+          // desliga regra que impede de usar alguns elementos HTML
+          // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/forbid-elements.md
+          "react/forbid-elements": ["off", { "forbid": [] }],
+  
+          // requer que a props de estilo receba um objeto e não strings
+          // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/style-prop-object.md
+          "react/style-prop-object": "error",
+  
+          // garante que não haverá erros de sintaxe na escrita da tag no JSX
+          // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-unescaped-entities.md
+          "react/no-unescaped-entities": "error",
+  
+          // children é uma props que deve ser enviada como filho e não como atributo
+          // essa regra possui excessões quando o children é renderizado de forma
+          // dinâmica, então ela muitas vezes pode ser desligada
+          // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-children-prop.md
+          "react/no-children-prop": "error",
+  
+          // evita o uso de índices de listas como keys, pois os valores das keys
+          // devem ser um valor estático, baseado no conteúdo
+          // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/no-array-index-key.md
+          "react/no-array-index-key": "error",
+  
+          // previne que elementos como input tenham elementos filhos
+          // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/void-dom-elements-no-children.md
+          "react/void-dom-elements-no-children": "error",
+  
+          // verifica a necessidade de chaves nas props ou no childrens
+          // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-curly-brace-presence.md
+          "react/jsx-curly-brace-presence": ["error", { "props": "never", "children": "never" }],
+  
+          // exige que as props sejam desestruturadas antes de usar no JSX
+          // https://github.com/yannickcr/eslint-plugin-react/blob/843d71a432baf0f01f598d7cf1eea75ad6896e4b/docs/rules/destructuring-assignment.md
+          "react/destructuring-assignment": ["error", "always"],
+  
+          // em classes, previne de usar this.state dentro de this.setState
+          // https://github.com/yannickcr/eslint-plugin-react/blob/843d71a432baf0f01f598d7cf1eea75ad6896e4b/docs/rules/no-access-state-in-setstate.md
+          "react/no-access-state-in-setstate": "error",
+  
+          // a11y: exigir type no botão causa muitos problemas, então a regra fica
+          // desabilitada
+          // https://github.com/yannickcr/eslint-plugin-react/blob/843d71a432baf0f01f598d7cf1eea75ad6896e4b/docs/rules/button-has-type.md
+          "react/button-has-type": "off",
+  
+          // evita que o this seja usado em componentes funcionais
+          // https://github.com/yannickcr/eslint-plugin-react/blob/843d71a432baf0f01f598d7cf1eea75ad6896e4b/docs/rules/no-this-in-sfc.md
+          "react/no-this-in-sfc": "error",
+  
+          // o React.Fragment ser sempre usado assim <></>
+          // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-fragments.md
+          "react/jsx-fragments": ["error", "syntax"],
+  
+          // exige um valor padrão no estado
+          // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/state-in-constructor.md
+          "react/state-in-constructor": ["error", "always"],
+  
+          // impede de modificar os valores recebidos por props
+          // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/prefer-read-only-props.md
+          "react/prefer-read-only-props": "off",
+  
+          // desaprova uso desnecessário de fragmentos
+          // https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-useless-fragment.md
+          "react/jsx-no-useless-fragment": "error",
+  
+          // previne criar um componente dentro de outro
+          // https://github.com/yannickcr/eslint-plugin-react/blob/c2a790a3472eea0f6de984bdc3ee2a62197417fb/docs/rules/no-unstable-nested-components.md
+          "react/no-unstable-nested-components": "error",
+  
+          // impede prefixos nas tags do JSX
+          // https://github.com/yannickcr/eslint-plugin-react/blob/8785c169c25b09b33c95655bf508cf46263bc53f/docs/rules/no-namespace.md
+          "react/no-namespace": "error",
+  
+          // previne uso de atributos inválidos, exemplo link na tag <a>
+          // https://github.com/yannickcr/eslint-plugin-react/blob/21e01b61af7a38fc86d94f27eb66cda8054582ed/docs/rules/no-invalid-html-attribute.md
+          "react/no-invalid-html-attribute": "error",
+  
+          // previne de declarar métodos que não são utilizados no componente
+          // https://github.com/yannickcr/eslint-plugin-react/blob/21e01b61af7a38fc86d94f27eb66cda8054582ed/docs/rules/no-unused-class-component-methods.md
+          "react/no-unused-class-component-methods": "error",
+  
+          // muda regra do prettier para ser aspas duplas no JSX
+          "prettier/prettier": [
+            "error",
+            {
+              "jsxSingleQuote": false
+            }
+          ],
+  
+          // verifica os atributos ARIA se são válidos
+          // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/aria-props.md
+          "jsx-a11y/aria-props": "error",
+  
+          // verifica os valores dos atributos ARIA são válidos
+          // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/aria-proptypes.md
+          "jsx-a11y/aria-proptypes": "error",
+  
+          // verifica atributos ARIA role
+          // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/aria-role.md
+          "jsx-a11y/aria-role": ["error", { "ignoreNonDOM": false }],
+  
+          // verifica se o atributo ARIA é válido para aquele elemento
+          // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/aria-unsupported-elements.md
+          "jsx-a11y/aria-unsupported-elements": "error",
+  
+          // verifica se o atributo autocomplete é adequado ao input que foi aplicado
+          // https://github.com/jsx-eslint/eslint-plugin-jsx-a11y/blob/29c68596b15c4ff0a40daae6d4a2670e36e37d35/docs/rules/autocomplete-valid.md
+          "jsx-a11y/autocomplete-valid": ["off", {
+            "inputComponents": []
+          }],
+  
+          // quando o elemento não for interativo exisgir além do onClick um
+          // onKeyUp/onKeyDown/onKeyPress
+          // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/click-events-have-key-events.md
+          "jsx-a11y/click-events-have-key-events": "error",
+  
+          // elementos não interativos atributos interativos (onClick) serem focaveis
+          // (exigir tabindex="0")
+          // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/interactive-supports-focus.md
+          "jsx-a11y/interactive-supports-focus": "error",
+  
+          // verifica se o valor do atributo lang é válido
+          // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/lang.md
+          "jsx-a11y/lang": "error",
+  
+          // exigir que elementos com mouseover/out tenha também focus/blur
+          // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/mouse-events-have-key-events.md
+          "jsx-a11y/mouse-events-have-key-events": "error",
+  
+          // proíbe elementos que causam distração, como <marquee> and <blink>
+          // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/no-distracting-elements.md
+          "jsx-a11y/no-distracting-elements": ["error", {
+            "elements": ["marquee", "blink"]
+          }],
+  
+          // WAI-ARIA role não ser usado para tirar a interatividade de um elemento
+          // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/no-interactive-element-to-noninteractive-role.md
+          "jsx-a11y/no-interactive-element-to-noninteractive-role": ["error", {
+            "tr": ["none", "presentation"]
+          }],
+  
+          // impede um elemento não interativo ter métodos de interativo
+          // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/no-noninteractive-element-interactions.md
+          "jsx-a11y/no-noninteractive-element-interactions": ["error", {
+            "handlers": [
+              "onClick",
+              "onMouseDown",
+              "onMouseUp",
+              "onKeyPress",
+              "onKeyDown",
+              "onKeyUp"
+            ]
+          }],
+  
+          // WAI-ARIA roles não devem converter elementos não interativos em interativos
+          // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/no-noninteractive-element-to-interactive-role.md
+          "jsx-a11y/no-noninteractive-element-to-interactive-role": ["error", {
+            "ul": ["listbox", "menu", "menubar", "radiogroup", "tablist", "tree", "treegrid"],
+            "ol": ["listbox", "menu", "menubar", "radiogroup", "tablist", "tree", "treegrid"],
+            "li": ["menuitem", "option", "row", "tab", "treeitem"],
+            "table": ["grid"],
+            "td": ["gridcell"]
+          }],
+  
+          // mantém desligada regra que proíbe uso de onChange
+          // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/no-onchange.md
+          "jsx-a11y/no-onchange": "off",
+  
+          // garante que elementos DOM não interativos recebam handlers
+          // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/no-static-element-interactions.md
+          "jsx-a11y/no-static-element-interactions": ["error", {
+            "handlers": [
+              "onClick",
+              "onMouseDown",
+              "onMouseUp",
+              "onKeyPress",
+              "onKeyDown",
+              "onKeyUp"
+            ]
+          }],
+  
+          // exigir o uso de todos os atributos aria que um role precisa
+          // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/role-has-required-aria-props.md
+          "jsx-a11y/role-has-required-aria-props": "error",
+  
+          // evita uso de atributos aria em roles que não são permitidos
+          // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/role-supports-aria-props.md
+          "jsx-a11y/role-supports-aria-props": "error",
+  
+          // apenas a tag <th> pode ter o atributo "scope"
+          // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/scope.md
+          "jsx-a11y/scope": "error",
+  
+          // tabindex nunca ser maior que zero
+          // https://github.com/evcohen/eslint-plugin-jsx-a11y/blob/master/docs/rules/tabindex-no-positive.md
+          "jsx-a11y/tabindex-no-positive": "error"
+        }
+      },
+      {
+        "files": ["*.html"],
+        "rules": {}
+      }
+    ],
+    "reportUnusedDisableDirectives": true,
+    "settings": {
+      "import/resolver": {
+        "node": {
+          "extensions": [".js", ".jsx", "ts", "tsx"]
+        }
+      },
+      "react": {
+        "pragma": "React",
+        "version": "detect"
+      },
+      "propWrapperFunctions": [
+        "forbidExtraProps", // https://www.npmjs.com/package/airbnb-prop-types
+        "exact", // https://www.npmjs.com/package/prop-types-exact
+        "Object.freeze" // https://tc39.github.io/ecma262/#sec-object.freeze
+      ]
+    }
+  }
+  

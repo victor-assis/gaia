@@ -1,0 +1,7 @@
+{
+  "color": {
+    "gray": {
+      "light" : { "value": "{color.gray.light.value}", "theme": "first" }
+    }
+  }
+}

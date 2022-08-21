@@ -1,6 +1,7 @@
 {
   "name": "@houf/style",
   "version": "1.0.0",
+  "main": "./css/main.css",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
     "tag": "latest",

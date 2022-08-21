@@ -1,0 +1,11 @@
+{
+  "name": "@houf/react",
+  "version": "1.0.0",
+  "main": "./index.js",
+  "module": "./index.esm.js",
+  "typings": "./index.d.ts",
+  "peerDependencies": {
+    "react": ">=18.2.0",
+    "react-dom": ">=18.2.0"
+  }
+}

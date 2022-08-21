@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": "./",
     "target": "es6",
     "outDir": "../../dist/react",
     "lib": [
@@ -8,7 +9,7 @@
       "esnext"
     ],
     "declaration": true,
-    "declarationDir": "types",
+    "declarationDir": "../../dist/react",
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
