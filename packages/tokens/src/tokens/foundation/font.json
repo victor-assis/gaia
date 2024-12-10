@@ -1,8 +1,29 @@
 {
   "font": {
     "roboto": {
-      "type": "font",
-      "value": "Roboto, sans-serif"
+      "family": { "value": "Roboto" },
+      "weight": {
+        "100": { "value": { "family": "Roboto", "weight": "100", "file": "Roboto-Thin" } },
+        "300": { "value": { "family": "Roboto", "weight": "300", "file": "Roboto-Light" } },
+        "400": { "value": { "family": "Roboto", "weight": "400", "file": "Roboto-Medium" } },
+        "500": { "value": { "family": "Roboto", "weight": "500", "file": "Roboto-Regular" } },
+        "700": { "value": { "family": "Roboto", "weight": "700", "file": "Roboto-Bold" } },
+        "900": { "value": { "family": "Roboto", "weight": "900", "file": "Roboto-Black" } }
+      }
+    },
+    "poppins": {
+      "family": { "value": "Poppins" },
+      "weight": {
+        "100": { "value": { "family": "Poppins", "weight": "100", "file": "Poppins-Thin" } },
+        "200": { "value": { "family": "Poppins", "weight": "200", "file": "Poppins-ExtraLight" } },
+        "300": { "value": { "family": "Poppins", "weight": "300", "file": "Poppins-Light" } },
+        "400": { "value": { "family": "Poppins", "weight": "400", "file": "Poppins-Medium" } },
+        "500": { "value": { "family": "Poppins", "weight": "500", "file": "Poppins-Regular" } },
+        "600": { "value": { "family": "Poppins", "weight": "600", "file": "Poppins-SemiBold" } },
+        "700": { "value": { "family": "Poppins", "weight": "700", "file": "Poppins-Bold" } },
+        "800": { "value": { "family": "Poppins", "weight": "700", "file": "Poppins-ExtraBold" } },
+        "900": { "value": { "family": "Poppins", "weight": "900", "file": "Poppins-Black" } }
+      }
     }
   }
 }

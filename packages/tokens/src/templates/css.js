@@ -5,8 +5,8 @@ export const cssFormatter = (dictionary, config) => {
   let output = '';
 
   dictionary.allTokens.forEach((token) => {
-    if (token.name.includes('textStyle')) {
-      fontsArray.add(`@import "../fonts/${token.original.value.family.split(' ').join('-')}.css";`);
+    if (token.name.includes('typography_family')) {
+      fontsArray.add(`@import "../fonts/${token.value.toLowerCase().replaceAll('"', '').split(' ').join('-')}.css";`);
     }
   });
 
@@ -14,7 +14,7 @@ export const cssFormatter = (dictionary, config) => {
     output += `${Array.from(fontsArray).join('\n')}\n\n`;
   }
 
-  output += `:root:not(class="hollom-theme-${config.theme}") {\n`;
+  output += `[class*="hollom-theme-${config.theme}"], :root:not([class*="hollom-theme-"]) {\n`;
 
   dictionary.allTokens.forEach(({ value, name, attributes }) => {
     if (attributes.category === 'color' && name.includes('gradient') && name.includes('chart')) {

@@ -40,7 +40,7 @@ const getConfig = theme => {
     source: tokensSource(theme),
     platforms: {
       css_scss: {
-        prefix: 'hollom',
+        prefix: 'holl',
         transformGroup: 'customCss',
         buildPath: `dist/tokens/${theme}/`,
         files: [
@@ -51,58 +51,32 @@ const getConfig = theme => {
               selector: `:root[class*="hollom-theme-${theme}"]`,
               theme
             },
-            filter: token => token.theme === theme
+            filter: token => token.theme === theme || token.theme === 'global'
           },
           {
             destination: 'tokens.scss',
             format: 'custom/scss',
-            filter: token => token.theme === theme,
+            filter: token => [theme, 'global'].includes(token.theme),
             options: {
               theme
             },
           },
-          {
-            destination: '../tokens.scss',
-            format: 'custom/scss-ref',
-            filter: token => token.theme === theme
-          }
         ]
       },
       js: {
-        prefix: 'hollom',
+        prefix: 'holl',
         transformGroup: 'customJs',
         buildPath: `dist/tokens/${theme}/`,
         files: [
           {
-            destination: '../tokens-themes.js',
-            format: 'custom/tokens-theme',
-            options: {
-              themes
-            },
-          },
-          {
-            destination: '../tokens-themes.mjs',
-            format: 'custom/tokens-theme-esm',
-            options: {
-              themes
-            },
-          },
-          {
-            destination: '../tokens-themes.d.ts',
-            format: 'custom/tokens-theme-declarations',
-            options: {
-              themes
-            },
-          },
-          {
             destination: 'tokens.js',
             format: 'custom/tokens-theme-module-flat',
-            filter: token => token.theme === theme
+            filter: token => token.theme === theme || token.theme === 'global'
           },
           {
             destination: 'tokens.d.ts',
             format: 'typescript/es6-declarations',
-            filter: token => token.theme === theme,
+            filter: token => token.theme === theme || token.theme === 'global',
             options: {
               showFileHeader: false
             }
@@ -110,20 +84,13 @@ const getConfig = theme => {
         ]
       },
       json: {
-        prefix: 'hollom',
+        prefix: 'holl',
         buildPath: `dist/tokens/${theme}/`,
         files: [
           {
-            destination: '../tokens-themes.json',
-            format: 'custom/tokens-theme-json',
-            options: {
-              themes
-            },
-          },
-          {
             destination: 'tokens.json',
-            format: 'json/flat',
-            filter: token => token.theme === theme
+            format: 'json/nested',
+            filter: token => token.theme === theme || token.theme === 'global'
           }
         ]
       },
@@ -134,7 +101,7 @@ const getConfig = theme => {
           {
             destination: `${theme}.html`,
             format: 'custom/theme',
-            filter: token => token.theme === theme,
+            filter: token => token.theme === theme || token.theme === 'global',
             options: {
               theme
             },
@@ -168,23 +135,77 @@ const build = async (sd) => {
 
   await sd.buildAllPlatforms();
 
-  // const additionalTokensConfig = {
-  //   source: tokensSource('white'),
-  //   platforms: {
-  //     css_fonts: {
-  //       prefix: 'hollom',
-  //       transformGroup: 'customed',
-  //       buildPath: 'dist/tokens/',
-  //       files: Object.keys(sd.tokens.text).map(fonts => ({
-  //         destination: `fonts/${fonts}.css`,
-  //         format: 'custom/fontsCss',
-  //         filter: token => token.attributes.category === 'text' && token.attributes.type === fonts,
-  //       })),
-  //     },
-  //   },
-  // }
+  const additionalTokensConfig = {
+    source: tokensSource('core'),
+    platforms: {
+      scss_ref: {
+        prefix: 'holl',
+        transformGroup: 'customCss',
+        buildPath: `dist/tokens/`,
+        files: [
+          {
+            destination: 'tokens.scss',
+            format: 'custom/scss-ref',
+            filter: token => ['core', 'global'].includes(token.theme)
+          }
+        ]
+      },
+      js_ref: {
+        prefix: 'holl',
+        transformGroup: 'customJs',
+        buildPath: `dist/tokens/`,
+        files: [
+          {
+            destination: 'tokens-themes.js',
+            format: 'custom/tokens-theme',
+            options: {
+              themes
+            },
+          },
+          {
+            destination: 'tokens-themes.mjs',
+            format: 'custom/tokens-theme-esm',
+            options: {
+              themes
+            },
+          },
+          {
+            destination: 'tokens-themes.d.ts',
+            format: 'custom/tokens-theme-declarations',
+            options: {
+              themes
+            },
+          }
+        ]
+      },
+      json_ref: {
+        prefix: 'holl',
+        buildPath: `dist/tokens/`,
+        files: [
+          {
+            destination: 'tokens-themes.json',
+            format: 'custom/tokens-theme-json',
+            options: {
+              themes
+            },
+          }
+        ]
+      },
+      css_fonts: {
+        prefix: 'holl',
+        transformGroup: 'customCss',
+        buildPath: 'dist/tokens/',
+        files: Object.keys(sd.tokens.font).map(fonts => ({
+          destination: `fonts/${fonts}.css`,
+          format: 'custom/fontsCss',
+          filter: token => token.attributes.category === 'font' && token.attributes.type === fonts,
+        })),
+        actions: ['copy_fonts'],
+      },
+    },
+  }
 
-  // await new StyleDictionary(additionalTokensConfig).buildAllPlatforms();
+  await new StyleDictionary(additionalTokensConfig).buildAllPlatforms();
 }
 
 // Loop para buildar os temas

@@ -1,44 +1,52 @@
-export const fontsCssFormatter = (dictionary) => {
-  const formatsMap = {
-    woff2: 'woff2',
-    woff: 'woff',
-    ttf: 'truetype',
-    otf: 'opentype',
-    svg: 'svg',
-    eot: 'embedded-opentype',
-  };
+import fs from 'fs';
 
-  const styleMap = {
-    200: 'light',
-    300: 'light',
-    400: 'regular',
-    500: 'medium',
-    700: 'bold',
-    900: 'xbold',
-  };
+const formatsMap = {
+  woff2: 'woff2',
+  woff: 'woff',
+  ttf: 'truetype',
+  otf: 'opentype',
+  svg: 'svg',
+  eot: 'embedded-opentype',
+};
 
-  return dictionary.allTokens.reduce((fontList, prop) => {
-    const { value: { family, weight, archive } } = prop;
+const generateUrls = (family, fileName) => {
+  return Object.keys(formatsMap)
+    .map((extension) => {
+      const filePath = `packages/tokens/src/assets/fonts/${family.toLowerCase()}/${fileName}.${extension}`;
+      if (fs.existsSync(filePath)) {
+        return `url("../assets/fonts/${family.toLowerCase()}/${fileName}.${extension}") format("${formatsMap[extension]}")`;
+      }
+    })
+    .filter(Boolean);
+};
 
-    const urls = Object.keys(formatsMap)
-      .map(
-        (extension) =>
-          `url("../assets/fonts/${archive}.${extension}") format("${formatsMap[extension]}")`
-      )
-      .join(',\n\t\t\t');
-
-    const fontCss = `
+const generateFontFace = (family, weight, style, urls) => {
+  if (!urls.length) return '';
+  return `
 @font-face {
   font-family: "${family}";
-  font-style: ${styleMap[weight]};
+  font-style: ${style};
   font-weight: ${weight};
   font-display: swap;
-  src: ${urls};
+  src: ${urls.join(',\n\t\t')};
 }`;
+};
 
-    if (family) {
-      fontList.push(fontCss);
-    }
+export const fontsCssFormatter = (dictionary) => {
+  return dictionary.allTokens.reduce((fontList, prop) => {
+    const { value: { family, weight, file } } = prop;
+
+    if (!family) return fontList;
+
+    const normalUrls = generateUrls(family, file);
+    const normalFontCss = generateFontFace(family, weight, 'normal', normalUrls);
+
+    if (normalFontCss) fontList.push(normalFontCss);
+
+    const italicUrls = generateUrls(family, `${file}Italic`);
+    const italicFontCss = generateFontFace(family, weight, 'italic', italicUrls);
+
+    if (italicFontCss) fontList.push(italicFontCss);
 
     return fontList;
   }, []).join('\n');

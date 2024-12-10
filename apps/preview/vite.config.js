@@ -10,6 +10,13 @@ const components = {
 
 export default defineConfig({
   base: './',
+  css: {
+    preprocessorOptions: {
+      scss: {
+        includePaths: ["dist/tokens"],
+      },
+    },
+  },
   server: {
     watch: {
       usePolling: true,

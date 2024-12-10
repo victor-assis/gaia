@@ -2,6 +2,7 @@
 ** Hollom styles - Containers Mixins
 */
 @use 'tokens' as tokens;
+@use '../base/config' as config;
 @use '../functions/list' as *;
 @use '../functions/tokens-handler' as *;
 @use '../functions/unit-transform' as *;
@@ -15,11 +16,11 @@ $tokens-map: meta.module-variables(tokens);
 /// Gera containers responsivos
 /// @group module-internal
 /// @example scss
-///   .hollom-container {
+///   .holl-container {
 ///     @include create-container();
 ///   }
 ///   /* output:
-///   .hollom-container {
+///   .holl-container {
 ///     ...
 ///     @media (min-width: 48rem){}
 ///     @media (min-width: 64rem){}
@@ -28,8 +29,8 @@ $tokens-map: meta.module-variables(tokens);
 ///   }
 /// */
 @mixin create-container() {
-  $containers: map-by-string($tokens-map, 'hollom-layout-container');
-  $padding: map-by-string($tokens-map, 'hollom-layout-padding');
+  $containers: map-by-string($tokens-map, 'holl-layout-container');
+  $padding: map-by-string($tokens-map, 'holl-layout-padding');
 
   max-width: list.nth(map.values($containers), 1);
   padding: 0 list.nth(map.values($padding), 1);
@@ -40,17 +41,13 @@ $tokens-map: meta.module-variables(tokens);
     @if (
       list.index(
           map.keys($containers),
-          'hollom-layout-container-#{$breakpoint}'
+          'holl-layout-container-#{$breakpoint}'
         ) !=
         1
     ) {
       @include media-q($from: $breakpoint, $media-type: 'screen') {
         max-width: $container;
-        padding: 0
-          var(
-            --hollom_layout_padding_#{$breakpoint},
-            map.get($padding, 'hollom-layout-padding-#{$breakpoint}')
-          );
+        padding: 0 map.get($padding, 'holl-layout-padding-#{$breakpoint}');
       }
     }
 
@@ -61,20 +58,16 @@ $tokens-map: meta.module-variables(tokens);
         @if (
           list.index(
               map.keys($containers),
-              'hollom-layout-container-#{$breakpoint}'
+              'holl-layout-container-#{$breakpoint}'
             ) >=
             list.index(
               map.keys($containers),
-              'hollom-layout-container-#{$breakpoint-second}'
+              'holl-layout-container-#{$breakpoint-second}'
             )
         ) {
           @include media-q($from: $breakpoint-second, $media-type: 'screen') {
             max-width: $container-second;
-            padding: 0
-              var(
-                --hollom_layout_padding_#{$breakpoint},
-                map.get($padding, 'hollom-layout-padding-#{$breakpoint-second}')
-              );
+            padding: 0 map.get($padding, 'holl-layout-padding-#{$breakpoint-second}');
           }
         }
       }
@@ -86,11 +79,11 @@ $tokens-map: meta.module-variables(tokens);
 /// @group module-internal
 /// @todo renomear ou remover e usar os helpers de padding
 /// @example scss
-///   .hollom-container-fluid {
+///   .holl-container-fluid {
 ///     @include create-container-fluid();
 ///   }
 ///   /* output:
-///   .hollom-container-fluid {
+///   .holl-container-fluid {
 ///     ...
 ///     @media (min-width: 48rem){}
 ///     @media (min-width: 64rem){}
@@ -99,13 +92,13 @@ $tokens-map: meta.module-variables(tokens);
 ///   }
 /// */
 @mixin create-container-fluid() {
-  $paddings: map-by-string($tokens-map, 'hollom-layout-padding');
+  $paddings: map-by-string($tokens-map, 'holl-layout-padding');
 
   @each $key, $padding in $paddings {
     $breakpoint: string-key-split($key, '-', 4);
 
     @include media-q($from: $breakpoint, $media-type: 'screen') {
-      $paddingValue: var(--hollom_layout_padding_#{$breakpoint}, $padding);
+      $paddingValue: $padding;
 
       padding-left: $paddingValue;
       padding-right: $paddingValue;
@@ -114,14 +107,14 @@ $tokens-map: meta.module-variables(tokens);
 }
 
 /// Gera rows responsivos. A quantidade de colunas é baseada nos tokens
-/// $hollom_layout_columns
+/// $holl_layout_columns
 /// @group module-internal
 /// @example scss
-///   .hollom-row {
+///   .holl-row {
 ///     @include create-row();
 ///   }
 ///   /* output:
-///   .hollom-row {
+///   .holl-row {
 ///     ...
 ///     @media (min-width: 48rem){}
 ///     @media (min-width: 64rem){}
@@ -130,8 +123,8 @@ $tokens-map: meta.module-variables(tokens);
 ///   }
 /// */
 @mixin create-row() {
-  $rows: map-by-string($tokens-map, 'hollom-layout-columns');
-  $gutters: map-by-string($tokens-map, 'hollom-layout-gutter');
+  $rows: map-by-string($tokens-map, 'holl-layout-columns');
+  $gutters: map-by-string($tokens-map, 'holl-layout-gutter');
   $minGutterKey: --#{str-replace(list.nth(map.keys($gutters), 1), '-', '_')};
 
   gap: var($minGutterKey, #{get-min($gutters)}rem);
@@ -141,13 +134,10 @@ $tokens-map: meta.module-variables(tokens);
     $breakpoint: string-key-split($key, '-', 4);
 
     @if (
-      list.index(map.keys($rows), 'hollom-layout-columns-#{$breakpoint}') != 1
+      list.index(map.keys($rows), 'holl-layout-columns-#{$breakpoint}') != 1
     ) {
       @include media-q($from: $breakpoint, $media-type: 'screen') {
-        gap: var(
-          --hollom_layout_gutter_#{$breakpoint},
-          map.get($gutters, 'hollom-layout-gutter-#{$breakpoint}')
-        );
+        gap: map.get($gutters, 'holl-layout-gutter-#{$breakpoint}');
         grid-template-columns: repeat($row, minmax(0, 1fr));
       }
     }
@@ -155,22 +145,22 @@ $tokens-map: meta.module-variables(tokens);
 }
 
 /// Gera rows responsivos com número máximo de colunas. A quantidade de colunas
-/// é baseada nos tokens $hollom_layout_columns
+/// é baseada nos tokens $holl_layout_columns
 /// @group module-internal
 /// @example scss
-///   .hollom-row {
+///   .holl-row {
 ///     @include create-row-max();
 ///   }
-///   /* output: .hollom-row-8 {...} .hollom-row-fixed-4 {...} */
+///   /* output: .holl-row-8 {...} .holl-row-fixed-4 {...} */
 @mixin create-row-max() {
-  $rows: map-by-string($tokens-map, 'hollom-layout-columns');
-  $gutters: map-by-string($tokens-map, 'hollom-layout-gutter');
+  $rows: map-by-string($tokens-map, 'holl-layout-columns');
+  $gutters: map-by-string($tokens-map, 'holl-layout-gutter');
   $minGutterKey: --#{str-replace(list.nth(map.keys($gutters), 1), '-', '_')};
 
   @each $key, $row in $rows {
-    // gera .hollom-row-4 .hollom-row-8
-    @if (get-max($rows) > $row) {
-      &-#{$row} {
+    // gera .holl-row-4 .holl-row-8
+    @if (get-max($rows) > extract-fallback($row)) {
+      &-#{extract-fallback($row)} {
         gap: var($minGutterKey, #{get-min($gutters)}rem);
         grid-template-columns: repeat(get-min($rows), minmax(0, 1fr));
 
@@ -178,20 +168,17 @@ $tokens-map: meta.module-variables(tokens);
           $breakpoint: string-key-split($key, '-', 4);
 
           @if (
-            ($row-point <= $row) and
+            (extract-fallback($row-point) <= extract-fallback($row)) and
               (
                 list.index(
                     map.keys($rows),
-                    'hollom-layout-columns-#{$breakpoint}'
+                    'holl-layout-columns-#{$breakpoint}'
                   ) !=
                   1
               )
           ) {
             @include media-q($from: $breakpoint, $media-type: 'screen') {
-              gap: var(
-                --hollom_layout_gutter_#{$breakpoint},
-                map.get($gutters, 'hollom-layout-gutter-#{$breakpoint}')
-              );
+              gap: map.get($gutters, 'holl-layout-gutter-#{$breakpoint}');
               grid-template-columns: repeat($row-point, minmax(0, 1fr));
             }
           }
@@ -202,23 +189,23 @@ $tokens-map: meta.module-variables(tokens);
 }
 
 /// Gera rows não responsivos, com número fixo de colunas. A quantidade de
-/// colunas é baseada nos tokens $hollom_layout_columns
+/// colunas é baseada nos tokens $holl_layout_columns
 /// @group module-internal
 /// @example scss
-///   .hollom-row {
+///   .holl-row {
 ///     @include create-row-fixed();
 ///   }
-///   /* output: .hollom-row-fixed-12 {...} .hollom-row-fixed-8 {...} ... */
+///   /* output: .holl-row-fixed-12 {...} .holl-row-fixed-8 {...} ... */
 @mixin create-row-fixed() {
-  $rows: map-by-string($tokens-map, 'hollom-layout-columns');
+  $rows: map-by-string($tokens-map, 'holl-layout-columns');
   $rowList: list-remove-duplicate(map.values($rows));
-  $gutters: map-by-string($tokens-map, 'hollom-layout-gutter');
+  $gutters: map-by-string($tokens-map, 'holl-layout-gutter');
   $minGutterKey: --#{str-replace(list.nth(map.keys($gutters), 1), '-', '_')};
 
-  // gera .hollom-row-fixed-4, hollom-row-fixed-8...
+  // gera .holl-row-fixed-4, holl-row-fixed-8...
   @each $row in $rowList {
-    &-fixed-#{$row} {
-      $gutters: map-by-string($tokens-map, 'hollom-layout-gutter');
+    &-fixed-#{extract-fallback($row)} {
+      $gutters: map-by-string($tokens-map, 'holl-layout-gutter');
 
       gap: var($minGutterKey, #{get-min($gutters)}rem);
       grid-template-columns: repeat($row, minmax(0, 1fr));
@@ -229,10 +216,10 @@ $tokens-map: meta.module-variables(tokens);
 
         // ignora tamanho xs, pois esse já é padrão
         @if (
-          list.index(map.keys($rows), 'hollom-layout-columns-#{$breakpoint}') != 1
+          list.index(map.keys($rows), 'holl-layout-columns-#{$breakpoint}') != 1
         ) {
           @include media-q($from: $breakpoint, $media-type: 'screen') {
-            gap: var(--hollom_layout_gutter_#{$breakpoint}, $gutter);
+            gap: $gutter;
           }
         }
       }
@@ -243,12 +230,12 @@ $tokens-map: meta.module-variables(tokens);
 /// Gera colunas e offsets responsivos e não responsivos
 /// @group module-internal
 /// @example scss
-///   .hollom-col {
+///   .holl-col {
 ///     @include create-columns();
 ///   }
 ///   /* output:
-///   .hollom-column-1,
-///     [class*='hollom-row-fixed'] .hollom-column-1 {
+///   .holl-column-1,
+///     [class*='holl-row-fixed'] .holl-column-1 {
 ///     ...
 ///     @media (min-width: 48rem){}
 ///     @media (min-width: 64rem){}
@@ -257,12 +244,12 @@ $tokens-map: meta.module-variables(tokens);
 ///   }
 /// */
 @mixin create-columns() {
-  $columns: map-by-string($tokens-map, 'hollom-layout-columns');
+  $columns: map-by-string($tokens-map, 'holl-layout-columns');
 
-  // gera hollom-col-[1,2,3...] hollom-col-offset-[1,2,3...]
+  // gera holl-col-[1,2,3...] holl-col-offset-[1,2,3...]
   @for $i from 1 through get-max($columns) {
     &-#{$i},
-    [class*='hollom-row-fixed'] &-#{$i} {
+    [class*='holl-row-fixed'] &-#{$i} {
       grid-column-end: span $i;
     }
 
@@ -280,8 +267,8 @@ $tokens-map: meta.module-variables(tokens);
       $breakpoint: string-key-split($key, '-', 4);
 
       @if $i >
-        $column and
-        map-next-value($columns, 'hollom-layout-columns-#{$breakpoint}')
+        extract-fallback($column) and
+        map-next-value($columns, 'holl-layout-columns-#{$breakpoint}')
       {
         @include media-q($until: $breakpoint, $media-type: 'screen') {
           &-#{$i} {
@@ -296,19 +283,19 @@ $tokens-map: meta.module-variables(tokens);
     }
   }
 
-  // gera hollom-col{-offset}-[xs,sm,md...]-[1,2,3...]
+  // gera holl-col{-offset}-[xs,sm,md...]-[1,2,3...]
   @each $key, $column in $columns {
     $breakpoint: string-key-split($key, '-', 4);
 
     @include media-q($from: $breakpoint, $media-type: 'screen') {
-      @for $i from 1 through $column {
+      @for $i from 1 through extract-fallback($column) {
         &-#{$breakpoint}-#{$i},
-        [class*='hollom-row-fixed'] &-#{$breakpoint}-#{$i} {
+        [class*='holl-row-fixed'] &-#{$breakpoint}-#{$i} {
           grid-column-end: span $i;
         }
 
         &-offset-#{$breakpoint}-#{$i},
-        [class*='hollom-row-fixed'] &-offset-#{$breakpoint}-#{$i} {
+        [class*='holl-row-fixed'] &-offset-#{$breakpoint}-#{$i} {
           grid-column-start: $i;
         }
       }
@@ -319,22 +306,22 @@ $tokens-map: meta.module-variables(tokens);
 /// Gera gutters não responsivos
 /// @group module-internal
 /// @example scss
-///   .hollom-gutters {
+///   .holl-gutters {
 ///     @include create-gutters();
 ///   }
 ///   /* output:
-///   .hollom-gutters-sm {
-///     gap: var(--hollom_layout_gutter_sm, 1rem);
+///   .holl-gutters-sm {
+///     gap: var(--holl_layout_gutter_sm, 1rem);
 ///   }*/
 @mixin create-gutters() {
-  $gutters: map-by-string($tokens-map, 'hollom-layout-gutter');
+  $gutters: map-by-string($tokens-map, 'holl-layout-gutter');
 
   // gera &-(xs/sm/md/lg/xl)
   @each $key, $gutter in $gutters {
     &-#{string-key-split($key, '-', 4)} {
       $breakpoint: string-key-split($key, '-', 4);
 
-      gap: var(--hollom_layout_gutter_#{$breakpoint}, #{$gutter}) !important;
+      gap: #{$gutter} !important;
     }
   }
 }

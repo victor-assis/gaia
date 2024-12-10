@@ -50,34 +50,6 @@
   @include create-row-fixed();
 }
 
-[class*='holl-grid-'],
-.holl-grid {
-  @extend %holl-row;
-
-  gap: $holl_size_general_16x;
-  grid-auto-columns: 1fr;
-}
-
-.holl-grid-2 {
-  grid-template-columns: repeat(2, 1fr);
-}
-
-.holl-grid-3 {
-  grid-template-columns: repeat(3, 1fr);
-}
-
-.holl-grid-small {
-  gap: $holl_size_general_8x;
-
-  @include media-q($from: xs) {
-    gap: $holl_size_general_12x;
-  }
-}
-
-.holl-grid-large {
-  gap: $holl_size_general_32x;
-}
-
 /// @group module-layout
 .holl-no-gutters {
   gap: 0 !important;

@@ -2,6 +2,7 @@
 @use 'sass:string';
 @use 'sass:list';
 @use 'sass:meta';
+@use 'sass:math';
 @use 'sass:map';
 
 /// filtra os valores de um mapa para outro mapa, recebe duas entradas,
@@ -28,7 +29,7 @@
     }
   }
 
-  @if (length($map-string) != 0) {
+  @if (list.length($map-string) != 0) {
     @return $map-string;
   }
 
@@ -50,7 +51,7 @@
 ///
 @function string-key-split($string, $separator, $position) {
   $split-arr: ();
-  $index: str-index($string, $separator);
+  $index: string.index($string, $separator);
 
   @while $index != null {
     $item: string.slice($string, 1, $index - 1);
@@ -59,7 +60,7 @@
     $index: string.index($string, $separator);
   }
 
-  $split-arr: append($split-arr, $string);
+  $split-arr: list.append($split-arr, $string);
 
   @return list.nth($split-arr, $position);
 }
@@ -78,10 +79,10 @@
   $list: ();
 
   @each $key, $value in $map {
-    $list: list.append($list, strip-unit($value));
+    $list: list.append($list, strip-unit(extract-fallback($value)));
   }
 
-  @return max($list...);
+  @return math.max($list...);
 }
 
 /// Retorna o menor número absoluto de um mapa
@@ -98,10 +99,10 @@
   $list: ();
 
   @each $key, $value in $map {
-    $list: list.append($list, strip-unit($value));
+    $list: list.append($list, strip-unit(extract-fallback($value)));
   }
 
-  @return min($list...);
+  @return math.min($list...);
 }
 
 /// Recebe uma chave e um mapa, retorna a chave subsequente
@@ -161,7 +162,7 @@
     $keys: map.keys($map);
     $map-reversed: ();
 
-    @for $i from length($keys) through 1 {
+    @for $i from list.length($keys) through 1 {
       $map-reversed: map.merge(
         $map-reversed,
         (
@@ -179,24 +180,38 @@
 }
 
 /// substitui todas substrings por um novo valor (reclace all)
-/// @author Kitty Giraudel
 /// @param {String} $string - string inicial
 /// @param {String} $search - substring para substituir
 /// @param {String} $replace ('') - novo valor
 /// @return {String} - string atualizada
-/// @example str-reclace(hollom-padding-xs, '-', '_') // -> hollom_padding_xs
+/// @example str-reclace(holl-padding-xs, '-', '_') // -> holl_padding_xs
 ///
 @function str-replace($string, $search, $replace: '') {
-  $index: str-index($string, $search);
+  $index: string.index($string, $search);
 
   @if $index {
-    @return str-slice($string, 1, $index - 1) + $replace +
+    @return string.slice($string, 1, $index - 1) + $replace +
       str-replace(
-        str-slice($string, $index + str-length($search)),
+        string.slice($string, $index + string.length($search)),
         $search,
         $replace
       );
   }
 
   @return $string;
+}
+
+/// Função para extrair o fallback de uma variável CSS
+/// @param $value O valor que contém a função `var()`.
+/// @return Retorna apenas o fallback (ex.: `1rem`).
+/// @example extract-fallback(var(--holl_layout_gutter_xs, 1rem)) // -> 1rem
+///
+@function extract-fallback($value) {
+  @if string.index($value, 'var(') {
+    $parts: string.split($value, ',');
+
+    @return to-number(str-replace(str-replace(list.nth($parts, 2), ' ', ''), ')', ''));
+  }
+
+  @return $value;
 }

@@ -1,8 +1,48 @@
 {
   "size": {
-    "0": {
-      "type": "size",
-      "value": "0"
+    "general": {
+      "0": {
+        "type": "size",
+        "value": "0"
+      }
+    },
+    "weight": {
+      "100": {
+        "type": "size",
+        "value": "100"
+      },
+      "200": {
+        "type": "size",
+        "value": "200"
+      },
+      "300": {
+        "type": "size",
+        "value": "300"
+      },
+      "400": {
+        "type": "size",
+        "value": "400"
+      },
+      "500": {
+        "type": "size",
+        "value": "500"
+      },
+      "600": {
+        "type": "size",
+        "value": "600"
+      },
+      "700": {
+        "type": "size",
+        "value": "700"
+      },
+      "800": {
+        "type": "size",
+        "value": "800"
+      },
+      "900": {
+        "type": "size",
+        "value": "900"
+      }
     }
   }
 }
