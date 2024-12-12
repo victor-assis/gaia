@@ -1,6 +1,6 @@
-# Hollom Styles
+# Odyspace Styles
 
-**Hollom Styles** é uma biblioteca **CSS/SCSS** moderna e altamente configurável projetada para ajudar na criação de componentes reutilizáveis, classes utilitárias e estilos consistentes para aplicações web. Com um conjunto de ferramentas intuitivas, você pode acelerar o desenvolvimento de interfaces elegantes e responsivas.
+**Odyspace Styles** é uma biblioteca **CSS/SCSS** moderna e altamente configurável projetada para ajudar na criação de componentes reutilizáveis, classes utilitárias e estilos consistentes para aplicações web. Com um conjunto de ferramentas intuitivas, você pode acelerar o desenvolvimento de interfaces elegantes e responsivas.
 
 ---
 
@@ -10,12 +10,12 @@ Você pode instalar a biblioteca via **npm** ou **yarn**:
 
 ### **Com npm**
 ```bash
-npm install @hollom/styles
+npm install @odyspace/styles
 ```
 
 ### **Com yarn**
 ```bash
-yarn add @hollom/styles
+yarn add @odyspace/styles
 ```
 
 ---
@@ -39,15 +39,15 @@ yarn add @hollom/styles
 No seu arquivo principal CSS ou SCSS, importe o estilo base da biblioteca:
 
 ```scss
-@import "@hollom/styles";
+@import "@odyspace/styles";
 ```
 
 Ou importe apenas os módulos que você precisa:
 
 ```scss
-@import "@hollom/styles/base";
-@import "@hollom/styles/components/button";
-@import "@hollom/styles/utilities/colors";
+@import "@odyspace/styles/base";
+@import "@odyspace/styles/components/button";
+@import "@odyspace/styles/utilities/colors";
 ```
 
 ---

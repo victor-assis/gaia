@@ -1,10 +1,10 @@
 {
-  "name": "@hollom/styles",
+  "name": "@odyspace/styles",
   "version": "0.0.0",
   "main": "css/styles.css",
   "repository": {
     "type": "git",
-    "url": "https://github.com/victor-assis/hollom"
+    "url": "https://github.com/victor-assis/odyspace"
   },
   "publishConfig": {
     "access": "public"
