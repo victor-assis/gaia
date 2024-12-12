@@ -10,11 +10,11 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@hollom/linters": ["packages/lintrers"],
-      "@hollom/linters/*": ["packages/lintrers/*"],
-      "@hollom/tokens/*": ["packages/tokens/*"],
-      "@hollom/styles": ["packages/styles/src/styles.scss"],
-      "@hollom/tools": ["packages/tools/src"],
+      "@odyspace/linters": ["packages/lintrers"],
+      "@odyspace/linters/*": ["packages/lintrers/*"],
+      "@odyspace/tokens/*": ["packages/tokens/*"],
+      "@odyspace/styles": ["packages/styles/src/styles.scss"],
+      "@odyspace/tools": ["packages/tools/src"],
     }
   }
 }
