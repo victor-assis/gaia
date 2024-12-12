@@ -51,7 +51,7 @@ export const transforms = [
   }, {
     name: 'custom/motion/times',
     type: 'value',
-    filter: ({ attributes }) =>  attributes.category === 'motion' && (attributes.type === 'times' || attributes.type === 'delay'),
+    filter: ({ attributes }) =>  attributes.category === 'motion' && (attributes.type === 'time' || attributes.type === 'delay'),
     transform: ({ value }) => `${value}ms`
   }, {
     name: 'custom/motion/easing',

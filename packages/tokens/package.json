@@ -1,5 +1,5 @@
 {
-  "name": "@hollom/tokens",
+  "name": "@odyspace/tokens",
   "version": "0.0.0",
   "type": "module",
   "main": "./tokens-themes.js",
@@ -7,7 +7,7 @@
   "typings": "./tokens-themes.d.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/victor-assis/hollom"
+    "url": "https://github.com/victor-assis/odyspace"
   },
   "publishConfig": {
     "access": "public"

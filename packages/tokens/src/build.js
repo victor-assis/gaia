@@ -40,7 +40,7 @@ const getConfig = theme => {
     source: tokensSource(theme),
     platforms: {
       css_scss: {
-        prefix: 'holl',
+        prefix: 'ody',
         transformGroup: 'customCss',
         buildPath: `dist/tokens/${theme}/`,
         files: [
@@ -48,7 +48,7 @@ const getConfig = theme => {
             destination: 'tokens.css',
             format: 'custom/css',
             options: {
-              selector: `:root[class*="hollom-theme-${theme}"]`,
+              selector: `:root[class*="odyspace-theme-${theme}"]`,
               theme
             },
             filter: token => token.theme === theme || token.theme === 'global'
@@ -64,7 +64,7 @@ const getConfig = theme => {
         ]
       },
       js: {
-        prefix: 'holl',
+        prefix: 'ody',
         transformGroup: 'customJs',
         buildPath: `dist/tokens/${theme}/`,
         files: [
@@ -84,7 +84,7 @@ const getConfig = theme => {
         ]
       },
       json: {
-        prefix: 'holl',
+        prefix: 'ody',
         buildPath: `dist/tokens/${theme}/`,
         files: [
           {
@@ -139,7 +139,7 @@ const build = async (sd) => {
     source: tokensSource('core'),
     platforms: {
       scss_ref: {
-        prefix: 'holl',
+        prefix: 'ody',
         transformGroup: 'customCss',
         buildPath: `dist/tokens/`,
         files: [
@@ -151,7 +151,7 @@ const build = async (sd) => {
         ]
       },
       js_ref: {
-        prefix: 'holl',
+        prefix: 'ody',
         transformGroup: 'customJs',
         buildPath: `dist/tokens/`,
         files: [
@@ -179,7 +179,7 @@ const build = async (sd) => {
         ]
       },
       json_ref: {
-        prefix: 'holl',
+        prefix: 'ody',
         buildPath: `dist/tokens/`,
         files: [
           {
@@ -192,7 +192,7 @@ const build = async (sd) => {
         ]
       },
       css_fonts: {
-        prefix: 'holl',
+        prefix: 'ody',
         transformGroup: 'customCss',
         buildPath: 'dist/tokens/',
         files: Object.keys(sd.tokens.font).map(fonts => ({

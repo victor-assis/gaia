@@ -1,6 +1,6 @@
-# Hollom Tokens
+# Odyspace Tokens
 
-**Hollom Tokens** é uma biblioteca de **Design Tokens** que fornece um conjunto padronizado e escalável de valores compartilhados, como cores, espaçamentos, tipografia e muito mais. Esses tokens ajudam a manter consistência no design e permitem fácil integração em sistemas de design e aplicações web.
+**Odyspace Tokens** é uma biblioteca de **Design Tokens** que fornece um conjunto padronizado e escalável de valores compartilhados, como cores, espaçamentos, tipografia e muito mais. Esses tokens ajudam a manter consistência no design e permitem fácil integração em sistemas de design e aplicações web.
 
 ---
 
@@ -10,12 +10,12 @@ Você pode instalar a biblioteca via **npm** ou **yarn**:
 
 ### **Com npm**
 ```bash
-npm install @hollom/tokens
+npm install @odyspace/tokens
 ```
 
 ### **Com yarn**
 ```bash
-yarn add @hollom/tokens
+yarn add @odyspace/tokens
 ```
 
 ---
@@ -38,7 +38,7 @@ yarn add @hollom/tokens
 No SCSS, importe os tokens diretamente para usar em seus estilos:
 
 ```scss
-@import "@hollom/tokens";
+@import "@odyspace/tokens";
 
 TO-DO
 ```
@@ -47,7 +47,7 @@ TO-DO
 Os tokens também estão disponíveis como objetos JSON e JS para integrar com bibliotecas em javascript/typescript:
 
 ```javascript
-import tokens from '@hollom/tokens';
+import tokens from '@odyspace/tokens';
 
 TO-DO
 ```
@@ -56,20 +56,41 @@ TO-DO
 
 ### **Estrutura dos Tokens**
 
-#### **Cores**
-Tokens de cores globais e temáticas:
+#### **1. Foundation (Base Comum)**
+A **Foundation** é o núcleo que contém valores fixos e independentes de temas, como:
+- Cores básicas
+- Tipografias
+- Espaçamentos
+- Bordas
+- Sombreamentos
 
-TO-DO
+#### **2. Theme (Customizações por Tema)**
+O **Theme** contém variações que personalizam os valores da Foundation com base em um contexto, como:
+- Tema claro ou escuro
+- Temas personalizados para diferentes marcas
 
-#### **Espaçamentos**
-Valores de espaçamento padrão:
+---
 
-TO-DO
+### **Como Funciona**
 
-#### **Tipografia**
-Tamanhos e pesos de fonte:
+#### **Foundation (Base)**
+- Define valores que podem ser usados diretamente ou como referência nos temas.
+- **Exemplo**: A cor `brand` em `{color.blue.500.value}` é definida uma vez e usada em temas diferentes.
 
-TO-DO
+#### **Themes (Variações)**
+- Personalizam as cores, espaçamentos, etc., para diferentes temas.
+- **Exemplo**: O tema base usa `{color.blue.500.value}` para `background`.
+
+---
+
+### **Vantagens da Estrutura**
+
+1. **Reutilização**:
+    - Valores de Foundation são consistentes e podem ser referenciados em vários temas.
+2. **Escalabilidade**:
+    - Adicionar novos temas ou modificar os existentes é fácil.
+3. **Manutenção Simples**:
+    - Separação clara entre valores fixos e específicos de tema.
 
 ---
 

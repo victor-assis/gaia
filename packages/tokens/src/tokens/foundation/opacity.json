@@ -10,19 +10,9 @@
       "value": "10",
       "theme": "global"
     },
-    "20": {
+    "25": {
       "type": "opacity",
-      "value": "20",
-      "theme": "global"
-    },
-    "30": {
-      "type": "opacity",
-      "value": "30",
-      "theme": "global"
-    },
-    "40": {
-      "type": "opacity",
-      "value": "40",
+      "value": "25",
       "theme": "global"
     },
     "50": {
@@ -30,19 +20,9 @@
       "value": "50",
       "theme": "global"
     },
-    "60": {
+    "75": {
       "type": "opacity",
-      "value": "60",
-      "theme": "global"
-    },
-    "70": {
-      "type": "opacity",
-      "value": "70",
-      "theme": "global"
-    },
-    "80": {
-      "type": "opacity",
-      "value": "80",
+      "value": "75",
       "theme": "global"
     },
     "90": {

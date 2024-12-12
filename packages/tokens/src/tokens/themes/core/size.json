@@ -1,0 +1,63 @@
+{
+  "size": {
+    "sizing": {
+      "01": { "value": "2", "theme": "core" },
+      "02": { "value": "4", "theme": "core" },
+      "03": { "value": "8", "theme": "core" },
+      "04": { "value": "12", "theme": "core" },
+      "05": { "value": "16", "theme": "core" },
+      "06": { "value": "20", "theme": "core" },
+      "07": { "value": "24", "theme": "core" },
+      "08": { "value": "28", "theme": "core" },
+      "09": { "value": "32", "theme": "core" },
+      "10": { "value": "36", "theme": "core" },
+      "11": { "value": "40", "theme": "core" },
+      "12": { "value": "48", "theme": "core" },
+      "13": { "value": "56", "theme": "core" },
+      "14": { "value": "64", "theme": "core" },
+      "15": { "value": "96", "theme": "core" },
+      "16": { "value": "128", "theme": "core" },
+      "17": { "value": "192", "theme": "core" },
+      "18": { "value": "256", "theme": "core" }
+    },
+    "spacing": {
+      "00": { "value": "0", "theme": "core" },
+      "01": { "value": "2", "theme": "core" },
+      "02": { "value": "4", "theme": "core" },
+      "03": { "value": "8", "theme": "core" },
+      "04": { "value": "12", "theme": "core" },
+      "05": { "value": "16", "theme": "core" },
+      "06": { "value": "20", "theme": "core" },
+      "07": { "value": "24", "theme": "core" },
+      "08": { "value": "28", "theme": "core" },
+      "09": { "value": "32", "theme": "core" },
+      "10": { "value": "36", "theme": "core" },
+      "11": { "value": "40", "theme": "core" },
+      "12": { "value": "48", "theme": "core" },
+      "13": { "value": "56", "theme": "core" },
+      "14": { "value": "64", "theme": "core" },
+      "15": { "value": "96", "theme": "core" }
+    },
+    "borderRadius": {
+      "00": { "value": "0", "theme": "core" },
+      "01": { "value": "4", "theme": "core" },
+      "02": { "value": "6", "theme": "core" },
+      "03": { "value": "8", "theme": "core" },
+      "04": { "value": "10", "theme": "core" },
+      "05": { "value": "12", "theme": "core" },
+      "06": { "value": "16", "theme": "core" },
+      "07": { "value": "100%", "theme": "core" }
+    },
+    "stroke": {
+      "01": { "value": "0.8", "theme": "core" },
+      "02": { "value": "1", "theme": "core" },
+      "03": { "value": "2", "theme": "core" },
+      "04": { "value": "4", "theme": "core" }
+    },
+    "blur": {
+      "01": { "value": "4", "theme": "core" },
+      "02": { "value": "8", "theme": "core" },
+      "03": { "value": "16", "theme": "core" }
+    }
+  }
+}

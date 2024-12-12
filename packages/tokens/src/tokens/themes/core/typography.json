@@ -5,13 +5,20 @@
       "highlight": { "value": "{font.poppins.family.value}", "theme": "core" }
     },
     "size": {
-      "01": { "value": "12px", "theme": "core" },
-      "02": { "value": "14px", "theme": "core" },
-      "03": { "value": "16px", "theme": "core" },
-      "04": { "value": "20px", "theme": "core" },
-      "05": { "value": "24px", "theme": "core" },
-      "06": { "value": "32px", "theme": "core" },
-      "07": { "value": "40px", "theme": "core" }
+      "01": { "value": "10px", "theme": "core" },
+      "02": { "value": "12px", "theme": "core" },
+      "03": { "value": "14px", "theme": "core" },
+      "04": { "value": "16px", "theme": "core" },
+      "05": { "value": "18px", "theme": "core" },
+      "06": { "value": "20px", "theme": "core" },
+      "07": { "value": "24px", "theme": "core" },
+      "08": { "value": "28px", "theme": "core" },
+      "09": { "value": "32px", "theme": "core" },
+      "10": { "value": "36px", "theme": "core" },
+      "11": { "value": "40px", "theme": "core" },
+      "12": { "value": "48px", "theme": "core" },
+      "13": { "value": "56px", "theme": "core" },
+      "14": { "value": "64px", "theme": "core" }
     },
     "weight": {
       "01": { "value": "{size.weight.300.value}", "theme": "core" },
@@ -19,14 +26,16 @@
       "03": { "value": "{size.weight.700.value}", "theme": "core" }
     },
     "lineHeight": {
-      "short": { "value": "1.2", "theme": "core" },
-      "base": { "value": "1.5", "theme": "core" },
-      "tall": { "value": "1.8", "theme": "core" }
-    },
-    "letterSpacing": {
-      "tight": { "value": "-0.02em", "theme": "core" },
-      "normal": { "value": "0", "theme": "core" },
-      "wide": { "value": "0.05em", "theme": "core" }
+      "01": { "value": "16px", "theme": "core" },
+      "02": { "value": "20px", "theme": "core" },
+      "03": { "value": "24px", "theme": "core" },
+      "04": { "value": "28px", "theme": "core" },
+      "05": { "value": "32px", "theme": "core" },
+      "06": { "value": "36px", "theme": "core" },
+      "07": { "value": "40px", "theme": "core" },
+      "08": { "value": "44px", "theme": "core" },
+      "09": { "value": "48px", "theme": "core" },
+      "10": { "value": "56px", "theme": "core" }
     }
   }
 }

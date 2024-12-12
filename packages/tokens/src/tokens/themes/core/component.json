@@ -1,0 +1,7 @@
+{
+  "component": {
+    "button": {
+      "color": { "value": "{color.primary.brand.value}", "theme": "core" }
+    }
+  }
+}

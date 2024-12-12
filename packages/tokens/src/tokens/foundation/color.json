@@ -1,5 +1,11 @@
 {
   "color": {
+    "black": {
+      "value": "#000000"
+    },
+    "white": {
+      "value": "#ffffff"
+    },
     "blue": {
       "50": {
         "value": "#e3f8ff"

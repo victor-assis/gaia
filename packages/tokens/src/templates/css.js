@@ -14,7 +14,7 @@ export const cssFormatter = (dictionary, config) => {
     output += `${Array.from(fontsArray).join('\n')}\n\n`;
   }
 
-  output += `[class*="hollom-theme-${config.theme}"], :root:not([class*="hollom-theme-"]) {\n`;
+  output += `[class*="odyspace-theme-${config.theme}"], :root:not([class*="odyspace-theme-"]) {\n`;
 
   dictionary.allTokens.forEach(({ value, name, attributes }) => {
     if (attributes.category === 'color' && name.includes('gradient') && name.includes('chart')) {
