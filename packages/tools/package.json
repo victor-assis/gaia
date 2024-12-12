@@ -1,12 +1,12 @@
 {
-  "name": "@hollom/tools",
+  "name": "@odyspace/tools",
   "version": "0.0.0",
   "type": "module",
   "main": "./dist/index.cjs",
   "typings": "./dist/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/victor-assis/hollom"
+    "url": "https://github.com/victor-assis/odyspace"
   },
   "publishConfig": {
     "access": "public"

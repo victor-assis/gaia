@@ -1,6 +1,6 @@
-# Hollom Tools
+# Odyspace Tools
 
-**Hollom Tools** é uma biblioteca de métodos JavaScript projetada para facilitar a criação de componentes e aplicações web. Com uma coleção de utilitários robustos e eficientes, você pode acelerar o desenvolvimento, melhorar a reutilização de código e simplificar tarefas complexas.
+**Odyspace Tools** é uma biblioteca de métodos JavaScript projetada para facilitar a criação de componentes e aplicações web. Com uma coleção de utilitários robustos e eficientes, você pode acelerar o desenvolvimento, melhorar a reutilização de código e simplificar tarefas complexas.
 
 ---
 
@@ -9,13 +9,13 @@
 Você pode instalar a biblioteca via **npm**:
 
 ```bash
-npm install @hollom/tools
+npm install @odyspace/tools
 ```
 
 Ou usando **yarn**:
 
 ```bash
-yarn add @hollom/tools
+yarn add @odyspace/tools
 ```
 
 ---
