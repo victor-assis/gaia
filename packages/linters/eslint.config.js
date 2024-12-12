@@ -61,7 +61,7 @@ export default [
         2,
         {
           ignore: [
-            '@hollom/tools',
+            '@odyspace/tools',
             // '@angular/cdk',
             // '@angular/core',
             // '@angular/platform-browser-dynamic',

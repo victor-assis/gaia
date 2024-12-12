@@ -50,7 +50,7 @@
     'property-no-vendor-prefix': true,
     'selector-class-pattern': null,
     # 'string-quotes': 'single',
-    'plugin/selector-bem-pattern': { preset: 'bem', presetOptions: { namespace: 'holl' } },
+    'plugin/selector-bem-pattern': { preset: 'bem', presetOptions: { namespace: 'ody' } },
     'property-disallowed-list': [ 'float', 'clear' ],
     # 'max-line-length': [ 100, { ignore: [ 'comments' ] } ],
     # 'selector-descendant-combinator-no-non-space': true,

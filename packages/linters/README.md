@@ -1,6 +1,6 @@
-# Hollom Linters
+# Odyspace Linters
 
-**Hollom Linters** é uma biblioteca interna que padroniza e automatiza as regras de linting para projetos do ecossistema **Hollom Design System**. Ela centraliza configurações de lint para ferramentas como **ESLint**, **Stylelint** e **Prettier**, garantindo consistência de código em toda a organização.
+**Odyspace Linters** é uma biblioteca interna que padroniza e automatiza as regras de linting para projetos do ecossistema **Odyspace Design System**. Ela centraliza configurações de lint para ferramentas como **ESLint**, **Stylelint** e **Prettier**, garantindo consistência de código em toda a organização.
 
 ⚠️ **Atenção:** Esta biblioteca é de uso interno e não está disponível para publicação ou uso externo.
 
@@ -25,7 +25,7 @@ Adicione o seguinte ao seu arquivo `.eslintrc.js`:
 
 ```javascript
 module.exports = {
-  extends: ['@hollom/linters/eslint'],
+  extends: ['@odyspace/linters/eslint'],
 };
 ```
 
@@ -34,7 +34,7 @@ Crie ou edite o arquivo `stylelint.config.js`:
 
 ```javascript
 module.exports = {
-  extends: ['@hollom/linters/stylelint'],
+  extends: ['@odyspace/linters/stylelint'],
 };
 ```
 
@@ -42,7 +42,7 @@ module.exports = {
 Adicione um arquivo `.prettierrc.js` com a configuração:
 
 ```javascript
-module.exports = require('@hollom/linters/prettier');
+module.exports = require('@odyspace/linters/prettier');
 ```
 
 ---
