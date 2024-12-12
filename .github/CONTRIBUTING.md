@@ -30,7 +30,7 @@ Estas diretrizes ajudarão a garantir que o processo de contribuição seja tran
 
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/victor-assis/hollom.git
+   git clone https://github.com/victor-assis/odyspace.git
    cd repo
    ```
 
