@@ -1,0 +1,10 @@
+{
+  "package": {
+    "title": "Odyspace styles",
+    "description": "Odyspace design system styles"
+  },
+  "groups": {
+    "undefined": "General",
+    "components": "Components"
+  }
+}
