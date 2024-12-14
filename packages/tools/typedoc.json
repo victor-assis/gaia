@@ -1,0 +1,6 @@
+{
+  "name": "Odyspace tools",
+  "entryPoints": ["src/index.ts"],
+  "tsconfig": "tsconfig.lib.json",
+  "json": "../../dist/docs/tools/toolsdoc.json"
+}
