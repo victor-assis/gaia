@@ -1,7 +1,7 @@
-<svg width="820" height="820" id="odyspace" viewBox="0 0 820 820" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="820" height="820" id="odyspace" viewBox="0 0 820 820" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000">
 <style>
-path {
-  fill: #000;
+@media (prefers-color-scheme: light) {
+  path { fill: #000; }
 }
 @media (prefers-color-scheme: dark) {
   path { fill: #fff; }
